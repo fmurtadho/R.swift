@@ -47,7 +47,8 @@ public struct RswiftCore {
       // Generate UITest R file
       if let uiTestOutputURL = callInformation.uiTestOutputURL {
         let uiTestFileContents = generateUITestFileContents(resources: resources, generators: [
-          AccessibilityIdentifierStructGenerator(nibs: resources.nibs, storyboards: resources.storyboards)
+          AccessibilityIdentifierStructGenerator(nibs: resources.nibs, storyboards: resources.storyboards),
+          StringsStructGenerator(localizableStrings: resources.localizableStrings)
         ])
         writeIfChanged(contents: uiTestFileContents, toURL: uiTestOutputURL)
       }
